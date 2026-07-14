@@ -87,7 +87,7 @@ export default function PlacementTest() {
       setSelectedAnswer(null);
     } else {
       setStep("calculating");
-      // Simulate AI analysis delay
+      // Simulate analysis delay
       setTimeout(() => {
         setStep("result");
       }, 3000);

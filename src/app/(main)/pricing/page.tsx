@@ -18,8 +18,8 @@ export default function Pricing() {
             Priceless Learning. <br className="hidden md:block" />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-green-400">Literally $0.</span>
           </h1>
-          <p className="text-xl text-foreground/70 font-medium">
-            While we refine our AI engine, FluentYapp is currently 100% free for all early adopters. No credit card required. No hidden fees. Just pure language mastery.
+          <p className="text-xl text-foreground/70 font-medium max-w-2xl mx-auto">
+            FluentYapp is currently 100% free for all early adopters. No credit card required. No hidden fees. Just pure language mastery.
           </p>
         </div>
 
@@ -42,8 +42,8 @@ export default function Pricing() {
               <span className="text-xl font-medium text-foreground/50">/month</span>
             </div>
             <ul className="space-y-4 mb-8 flex-1 text-foreground/50">
-              {['Unlimited AI Speaking Practice', 'Advanced Grammar Analysis', 'Priority Support', 'Offline Mode'].map((feat, i) => (
-                <li key={i} className="flex items-center font-medium">
+              {['Unlimited Speaking Practice', 'Advanced Grammar Analysis', 'Priority Support', 'Offline Mode'].map((feat, i) => (
+                <li key={i} className="flex items-center text-foreground/80 font-medium">
                   <CheckCircle2 size={20} className="mr-3" /> {feat}
                 </li>
               ))}
@@ -61,10 +61,10 @@ export default function Pricing() {
               <span className="text-6xl font-black text-primary">$0</span>
               <span className="text-xl font-bold text-foreground/50 ml-2">forever*</span>
             </div>
-            <ul className="space-y-4 mb-10 flex-1">
+            <ul className="space-y-4 mb-8">
               {[
                 'Full CEFR Diagnostic Test',
-                'AI-Personalized Curriculum',
+                'Personalized Curriculum',
                 'Real-time Speech Recognition',
                 'Unlimited Vocabulary Modules',
                 'Keep features free forever if you join now'

@@ -12,9 +12,35 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "FluentYapp - Master English with AI",
-  description: "AI-powered English learning platform.",
+  title: "FluentYapp - Master English Interactively",
+  description: "A premium, gamified English learning platform designed to help you achieve fluency through interactive lessons, grammar libraries, and real-time pronunciation practice.",
   manifest: "/manifest.json",
+  icons: {
+    icon: "/logo.png",
+    apple: "/logo.png",
+  },
+  openGraph: {
+    title: "FluentYapp - Master English Interactively",
+    description: "A premium, gamified English learning platform. Practice speaking, learn grammar, and climb the leaderboard!",
+    url: "https://fluentyapp.vercel.app", // Adjust this if custom domain
+    siteName: "FluentYapp",
+    images: [
+      {
+        url: "/logo.png",
+        width: 512,
+        height: 512,
+        alt: "FluentYapp Logo",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "FluentYapp - Master English Interactively",
+    description: "Gamified English learning platform. Master your skills today!",
+    images: ["/logo.png"],
+  },
   appleWebApp: {
     capable: true,
     statusBarStyle: "default",

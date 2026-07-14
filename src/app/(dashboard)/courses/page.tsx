@@ -5,10 +5,10 @@ export default function CoursesPage() {
     <div className="p-6 lg:p-10 max-w-7xl mx-auto space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
         <div>
-          <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight mb-2">
-            Module Library
+          <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight mb-2 text-foreground">
+            Explore Courses
           </h1>
-          <p className="text-foreground/70 font-medium text-lg">Explore all available AI-generated modules.</p>
+          <p className="text-foreground/70 font-medium text-lg">Explore all available interactive modules.</p>
         </div>
       </div>
 
@@ -50,7 +50,7 @@ export default function CoursesPage() {
             </div>
             
             <h4 className="font-bold text-xl mb-2">{course.title}</h4>
-            <p className="text-sm text-foreground/60 font-medium mb-8">Improve your {course.type.toLowerCase()} skills with interactive AI practice.</p>
+            <p className="text-sm text-foreground/60 font-medium mb-8">Improve your {course.type.toLowerCase()} skills with interactive practice.</p>
             
             <div className="mt-auto flex items-center justify-between pt-4 border-t border-border/50">
               <div className="flex space-x-3 text-xs font-bold text-foreground/50">

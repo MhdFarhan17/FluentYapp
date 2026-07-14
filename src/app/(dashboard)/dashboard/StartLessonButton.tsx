@@ -6,8 +6,8 @@ import { ArrowRight } from "lucide-react";
 export default function StartLessonButton() {
   const handleClick = () => {
     toast.success("Lesson starting soon!", {
-      description: "AI is preparing your personalized curriculum...",
-      icon: "🤖",
+      description: "Preparing your personalized curriculum...",
+      icon: "📚",
     });
   };
 

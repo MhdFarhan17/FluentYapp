@@ -56,7 +56,7 @@ export default function HowItWorks() {
         </div>
       </section>
 
-      {/* Step 2: AI Curriculum */}
+      {/* Step 2: Smart Curriculum */}
       <section className="w-full py-24 bg-secondary/30 border-y border-border relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
@@ -64,8 +64,8 @@ export default function HowItWorks() {
               <div className="w-16 h-16 bg-primary/10 text-primary rounded-2xl flex items-center justify-center shadow-inner">
                 <Sparkles size={32} />
               </div>
-              <h2 className="text-4xl font-extrabold">2. The AI Curriculum</h2>
-              <p className="text-xl text-foreground/70 leading-relaxed font-medium">
+              <h2 className="text-4xl font-extrabold">2. Your Smart Curriculum</h2>
+              <p className="text-foreground/70 text-lg leading-relaxed font-medium">
                 Our algorithm processes your test results and instantly generates a highly personalized learning path. It targets your exact weaknesses—whether that's past-tense grammar, workplace vocabulary, or listening comprehension.
               </p>
             </div>
