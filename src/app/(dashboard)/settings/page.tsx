@@ -109,7 +109,7 @@ export default function SettingsPage() {
     }
   };
 
-  const handleTogglePreference = (key: 'sound' | 'reminders') => {
+  const handleTogglePreference = async (key: 'sound' | 'reminders') => {
     if (key === 'sound') {
       const newVal = !soundEnabled;
       setSoundEnabled(newVal);
@@ -119,7 +119,66 @@ export default function SettingsPage() {
       const newVal = !remindersEnabled;
       setRemindersEnabled(newVal);
       localStorage.setItem('user_prefs', JSON.stringify({ sound: soundEnabled, reminders: newVal }));
-      toast.success(newVal ? "Daily reminders enabled" : "Daily reminders disabled");
+      
+      if (newVal) {
+        if ('serviceWorker' in navigator && 'PushManager' in window) {
+          try {
+            const permission = await Notification.requestPermission();
+            if (permission === 'granted') {
+              const registration = await navigator.serviceWorker.ready;
+              
+              // Subscribe to Push
+              const subscription = await registration.pushManager.subscribe({
+                userVisibleOnly: true,
+                applicationServerKey: process.env.NEXT_PUBLIC_VAPID_PUBLIC_KEY
+              });
+              
+              // Send to backend
+              const res = await fetch('/api/push/subscribe', {
+                method: 'POST',
+                body: JSON.stringify(subscription),
+                headers: { 'Content-Type': 'application/json' }
+              });
+              
+              if (res.ok) {
+                toast.success("Daily reminders enabled!");
+              } else {
+                throw new Error("Backend failed");
+              }
+            } else {
+              setRemindersEnabled(false);
+              localStorage.setItem('user_prefs', JSON.stringify({ sound: soundEnabled, reminders: false }));
+              toast.error("Notification permission denied.");
+            }
+          } catch (err) {
+            console.error("Push Error:", err);
+            setRemindersEnabled(false);
+            localStorage.setItem('user_prefs', JSON.stringify({ sound: soundEnabled, reminders: false }));
+            toast.error("Failed to setup push notifications.");
+          }
+        } else {
+          toast.error("Push notifications are not supported in this browser.");
+          setRemindersEnabled(false);
+          localStorage.setItem('user_prefs', JSON.stringify({ sound: soundEnabled, reminders: false }));
+        }
+      } else {
+        // Unsubscribe
+        if ('serviceWorker' in navigator && 'PushManager' in window) {
+          try {
+            const registration = await navigator.serviceWorker.ready;
+            const subscription = await registration.pushManager.getSubscription();
+            if (subscription) {
+              await subscription.unsubscribe();
+              await fetch('/api/push/subscribe', {
+                method: 'DELETE',
+                body: JSON.stringify({ endpoint: subscription.endpoint }),
+                headers: { 'Content-Type': 'application/json' }
+              });
+            }
+          } catch(e) { console.error(e); }
+        }
+        toast.success("Daily reminders disabled");
+      }
     }
   };
 

@@ -90,7 +90,7 @@ FluentYapp/
 - [x] Gamified Lesson UI
 - [x] Streak and Leaderboard System
 - [x] Smart Weakness Review
-- [ ] Push Notifications & Reminders
+- [x] Push Notifications & Reminders
 - [ ] Mobile App (PWA) Enhancements
 
 ## 👨‍💻 Author
