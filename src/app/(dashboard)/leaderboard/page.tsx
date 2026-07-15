@@ -146,22 +146,22 @@ export default function LeaderboardPage() {
     <div className="max-w-4xl mx-auto px-4 py-8 md:py-12">
       
       {/* League Banner */}
-      <div className="w-full bg-gradient-to-r from-violet-600 to-fuchsia-600 rounded-3xl p-6 md:p-8 mb-12 md:mb-16 shadow-xl relative overflow-hidden flex flex-col md:flex-row items-center justify-between border-b-4 border-violet-800">
-        <div className="relative z-10 flex flex-col sm:flex-row items-center sm:space-x-6 mb-6 md:mb-0 text-center sm:text-left">
-          <div className="w-16 h-16 sm:w-20 sm:h-20 bg-white/20 rounded-2xl flex items-center justify-center backdrop-blur-md border-2 border-white/30 shadow-inner transform rotate-3 mb-4 sm:mb-0">
-            <Trophy className="text-yellow-300 drop-shadow-md" size={36} />
+      <div className="w-full bg-gradient-to-r from-violet-600 to-fuchsia-600 rounded-[2rem] md:rounded-[3rem] p-6 md:p-8 mb-8 md:mb-16 shadow-xl relative overflow-hidden flex flex-col md:flex-row items-center justify-between border-b-[6px] md:border-b-8 border-violet-800">
+        <div className="relative z-10 flex flex-col sm:flex-row items-center sm:space-x-6 mb-4 md:mb-0 text-center sm:text-left">
+          <div className="w-14 h-14 sm:w-20 sm:h-20 bg-white/20 rounded-2xl flex items-center justify-center backdrop-blur-md border-2 border-white/30 shadow-inner transform rotate-3 mb-3 sm:mb-0">
+            <Trophy className="text-yellow-300 drop-shadow-md w-8 h-8 sm:w-[36px] sm:h-[36px]" />
           </div>
           <div>
-            <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white tracking-tight drop-shadow-sm">Diamond League</h1>
-            <p className="text-white/80 font-bold mt-1 text-sm sm:text-base">Top 5 advance to the next league!</p>
+            <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white tracking-tight drop-shadow-sm mb-1">Diamond League</h1>
+            <p className="text-white/80 font-bold text-sm sm:text-base drop-shadow-sm">Top 5 advance to the next league!</p>
           </div>
         </div>
         
-        <div className={`relative z-10 bg-black/20 backdrop-blur-md px-6 py-3 rounded-2xl border-2 text-center min-w-[160px] w-full md:w-auto transition-colors duration-1000 ${isUrgent ? 'border-orange-500/50 shadow-[0_0_15px_rgba(249,115,22,0.3)] animate-pulse' : 'border-white/10'}`}>
-          <p className={`font-bold text-xs uppercase tracking-wider mb-1 ${isUrgent ? 'text-orange-400' : 'text-white/60'}`}>
+        <div className={`relative z-10 bg-black/20 backdrop-blur-md px-6 py-3 sm:py-4 rounded-2xl sm:rounded-3xl border-2 text-center min-w-[160px] sm:min-w-[200px] w-full md:w-auto transition-colors duration-1000 mt-2 md:mt-0 ${isUrgent ? 'border-orange-500/50 shadow-[0_0_15px_rgba(249,115,22,0.3)] animate-pulse' : 'border-white/10'}`}>
+          <p className={`font-bold text-[10px] sm:text-xs uppercase tracking-wider mb-1 flex items-center justify-center ${isUrgent ? 'text-orange-400' : 'text-white/60'}`}>
             Time Remaining
           </p>
-          <p className={`font-extrabold text-xl font-mono ${isUrgent ? 'text-orange-500' : 'text-white'}`}>
+          <p className={`font-extrabold text-xl sm:text-2xl font-mono ${isUrgent ? 'text-orange-500' : 'text-white'}`}>
             {timeLeft}
           </p>
         </div>

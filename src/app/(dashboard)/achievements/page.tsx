@@ -121,27 +121,27 @@ export default function AchievementsPage() {
     <div className="max-w-6xl mx-auto px-4 py-8 md:py-12">
       
       {/* Premium Header Banner */}
-      <div className="w-full bg-gradient-to-r from-amber-500 to-orange-600 rounded-[2rem] sm:rounded-[3rem] p-6 sm:p-8 md:p-12 mb-12 md:mb-16 shadow-xl relative overflow-hidden flex flex-col md:flex-row items-center justify-between border-b-8 border-orange-800">
-        <div className="relative z-10 flex flex-col sm:flex-row items-center sm:space-x-6 mb-6 md:mb-0 text-center sm:text-left">
-          <div className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-md border-4 border-white/30 shadow-inner transform -rotate-12 hover:rotate-0 transition-transform duration-500 mb-4 sm:mb-0">
-            <Trophy className="text-white drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] w-[32px] h-[32px] sm:w-[48px] sm:h-[48px]" />
+      <div className="w-full bg-gradient-to-r from-amber-500 to-orange-600 rounded-[2rem] md:rounded-[3rem] p-6 md:p-12 mb-8 md:mb-16 shadow-xl relative overflow-hidden flex flex-col md:flex-row items-center justify-between border-b-[6px] md:border-b-8 border-orange-800">
+        <div className="relative z-10 flex flex-col sm:flex-row items-center sm:space-x-6 mb-4 md:mb-0 text-center sm:text-left">
+          <div className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-md border-4 border-white/30 shadow-inner transform -rotate-12 hover:rotate-0 transition-transform duration-500 mb-3 sm:mb-0">
+            <Trophy className="text-white drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] w-8 h-8 sm:w-12 sm:h-12 md:w-[48px] md:h-[48px]" />
           </div>
           <div>
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight drop-shadow-md mb-1 sm:mb-2">Trophy Cabinet</h1>
+            <h1 className="text-2xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight drop-shadow-md mb-1">Trophy Cabinet</h1>
             <p className="text-white/90 font-bold text-sm sm:text-lg drop-shadow-sm">Collect Stars and Level Up Badges.</p>
           </div>
         </div>
         
-        <div className="relative z-10 bg-black/20 backdrop-blur-md px-6 sm:px-8 py-4 sm:py-5 rounded-2xl sm:rounded-3xl border-2 border-white/10 text-center min-w-[180px] sm:min-w-[220px] shadow-lg w-full md:w-auto">
+        <div className="relative z-10 bg-black/20 backdrop-blur-md px-6 py-4 sm:px-8 sm:py-5 rounded-2xl md:rounded-3xl border-2 border-white/10 text-center min-w-[180px] sm:min-w-[220px] shadow-lg w-full md:w-auto mt-2 md:mt-0">
           <div className="text-white/80 font-bold text-xs sm:text-sm uppercase tracking-widest mb-1 flex items-center justify-center">
             <Star size={16} className="mr-1 text-yellow-300" /> Stars Earned
           </div>
-          <div className="text-3xl sm:text-4xl font-extrabold text-white">{totalStarsEarned} <span className="text-xl sm:text-2xl text-white/50">/ {totalPossibleStars}</span></div>
+          <div className="text-2xl sm:text-4xl font-extrabold text-white">{totalStarsEarned} <span className="text-lg sm:text-2xl text-white/50">/ {totalPossibleStars}</span></div>
         </div>
         
         {/* Decorative elements */}
-        <div className="absolute top-0 right-10 w-64 h-64 bg-yellow-300/30 rounded-full -translate-y-1/2 blur-3xl"></div>
-        <div className="absolute bottom-0 left-20 w-80 h-80 bg-red-500/20 rounded-full translate-y-1/3 blur-3xl"></div>
+        <div className="absolute top-0 right-10 w-48 md:w-64 h-48 md:h-64 bg-yellow-300/30 rounded-full -translate-y-1/2 blur-3xl"></div>
+        <div className="absolute bottom-0 left-20 w-64 md:w-80 h-64 md:h-80 bg-red-500/20 rounded-full translate-y-1/3 blur-3xl"></div>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

@@ -46,22 +46,22 @@ export default function ReviewPage() {
   return (
     <div className="max-w-5xl mx-auto px-4 py-8 md:py-12">
       {/* Header Banner */}
-      <div className="w-full bg-gradient-to-r from-teal-500 to-emerald-600 rounded-[2rem] sm:rounded-[3rem] p-6 sm:p-8 md:p-12 mb-12 shadow-xl relative overflow-hidden flex flex-col md:flex-row items-center justify-between border-b-8 border-emerald-800">
-        <div className="relative z-10 flex flex-col sm:flex-row items-center sm:space-x-6 mb-6 md:mb-0 text-center sm:text-left">
-          <div className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-md border-4 border-white/30 shadow-inner mb-4 sm:mb-0">
-            <Brain className="text-white drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] w-[32px] h-[32px] sm:w-[48px] sm:h-[48px]" />
+      <div className="w-full bg-gradient-to-r from-teal-500 to-emerald-600 rounded-[2rem] md:rounded-[3rem] p-6 md:p-12 mb-8 md:mb-12 shadow-xl relative overflow-hidden flex flex-col md:flex-row items-center justify-between border-b-[6px] md:border-b-8 border-emerald-800">
+        <div className="relative z-10 flex flex-col sm:flex-row items-center sm:space-x-6 mb-4 md:mb-0 text-center sm:text-left">
+          <div className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-md border-4 border-white/30 shadow-inner mb-3 sm:mb-0">
+            <Brain className="text-white drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] w-8 h-8 sm:w-12 sm:h-12 md:w-[48px] md:h-[48px]" />
           </div>
           <div>
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight drop-shadow-md mb-1 sm:mb-2">Smart Review</h1>
+            <h1 className="text-2xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight drop-shadow-md mb-1">Smart Review</h1>
             <p className="text-white/90 font-bold text-sm sm:text-lg drop-shadow-sm">Focus on your weaknesses. Practice smarter!</p>
           </div>
         </div>
         
-        <div className="relative z-10 bg-black/20 backdrop-blur-md px-6 sm:px-8 py-4 sm:py-5 rounded-2xl sm:rounded-3xl border-2 border-white/10 text-center min-w-[180px] sm:min-w-[220px] shadow-lg w-full md:w-auto">
-          <div className="text-white/80 font-bold text-xs sm:text-sm uppercase tracking-widest mb-1 flex items-center justify-center">
+        <div className="relative z-10 bg-black/20 backdrop-blur-md px-6 py-4 sm:px-8 sm:py-5 rounded-2xl md:rounded-3xl border-2 border-white/10 text-center min-w-[160px] sm:min-w-[220px] shadow-lg w-full md:w-auto mt-2 md:mt-0">
+          <div className="text-white/80 font-bold text-[10px] sm:text-xs uppercase tracking-widest mb-1 flex items-center justify-center">
             <Target size={16} className="mr-1 text-red-300" /> Saved Mistakes
           </div>
-          <div className="text-3xl sm:text-4xl font-extrabold text-white">{mistakes.length}</div>
+          <div className="text-2xl sm:text-4xl font-extrabold text-white">{mistakes.length}</div>
         </div>
         
         {/* Decorative elements */}

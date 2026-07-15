@@ -171,17 +171,17 @@ export default function DashboardPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6, type: "spring", bounce: 0.2 }}
-              className="w-full flex flex-col items-center relative mb-16 pb-16 bg-secondary/20 dark:bg-secondary/10 rounded-[3rem] border-2 border-border/50 shadow-sm overflow-hidden"
+              className="w-full flex flex-col items-center relative mb-12 pb-12 md:mb-16 md:pb-16 bg-secondary/20 dark:bg-secondary/10 rounded-[2.5rem] md:rounded-[3rem] border-2 border-border/50 shadow-sm overflow-hidden"
             >
               
               {/* Header Banner */}
-              <div className={`w-full ${unit.bgColor} text-white rounded-t-[3rem] rounded-b-3xl p-8 mb-12 shadow-md relative overflow-hidden flex flex-col sm:flex-row items-center justify-between z-20`}>
-                <div className="relative z-10 text-center sm:text-left mb-6 sm:mb-0">
-                  <h1 className="text-3xl md:text-4xl font-extrabold mb-2 tracking-tight drop-shadow-md">{unit.title}</h1>
-                  <p className="text-white/90 font-bold text-lg drop-shadow-sm">{unit.description}</p>
+              <div className={`w-full ${unit.bgColor} text-white rounded-t-[2.5rem] md:rounded-t-[3rem] rounded-b-3xl p-6 md:p-8 mb-8 md:mb-12 shadow-md relative overflow-hidden flex flex-col sm:flex-row items-center justify-between z-20`}>
+                <div className="relative z-10 text-center sm:text-left mb-4 sm:mb-0">
+                  <h1 className="text-2xl md:text-4xl font-extrabold mb-2 tracking-tight drop-shadow-md">{unit.title}</h1>
+                  <p className="text-white/90 font-bold text-sm md:text-lg drop-shadow-sm">{unit.description}</p>
                 </div>
-                <div className="w-24 h-24 bg-white/20 rounded-full flex items-center justify-center relative z-10 shadow-inner backdrop-blur-md border-2 border-white/20 transform rotate-6 hover:rotate-12 transition-transform duration-500">
-                  <Crown size={48} className={`${unit.iconColor} drop-shadow-lg`} />
+                <div className="w-16 h-16 md:w-24 md:h-24 bg-white/20 rounded-full flex items-center justify-center relative z-10 shadow-inner backdrop-blur-md border-2 border-white/20 transform rotate-6 hover:rotate-12 transition-transform duration-500">
+                  <Crown className={`w-8 h-8 md:w-12 md:h-12 ${unit.iconColor} drop-shadow-lg`} />
                 </div>
                 {/* Decorative background elements */}
                 <div className="absolute top-0 right-0 w-64 h-64 bg-white/20 rounded-full -translate-y-1/2 translate-x-1/3 blur-2xl"></div>
