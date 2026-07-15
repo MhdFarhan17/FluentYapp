@@ -56,7 +56,7 @@ export default function LessonPage() {
   const params = useParams();
   const router = useRouter();
   const id = params.id as string;
-  const { xp, hearts, completedLessons, refreshProgress, addXpLocally, deductHeartLocally, addCompletedLessonLocally } = useProgress();
+  const { xp, hearts, completedLessons, refreshProgress, addXpLocally, deductHeartLocally, addCompletedLessonLocally, updateQuestProgress } = useProgress();
   const [exercises, setExercises] = useState<Exercise[]>([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [loading, setLoading] = useState(true);
@@ -344,7 +344,11 @@ export default function LessonPage() {
           setFinalXpEarned(xpEarned);
           
           // Optimistic updates for Instant UI!
-          addXpLocally(xpEarned);
+            addXpLocally(xpEarned);
+          
+          if (mistakes === 0) {
+            updateQuestProgress("perfect_lesson", 1);
+          }
           
           if (!isReview) {
             addCompletedLessonLocally(id);

@@ -308,37 +308,44 @@ export default function DashboardPage() {
               </div>
               
               <div className="space-y-6">
-                {/* Quest 1 */}
-                <div className="flex items-center">
-                  <div className="w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
-                    <Zap className="text-amber-500" size={24} />
+                {quests.length === 0 ? (
+                  <div className="text-center py-4 text-foreground/50 font-medium">
+                    Loading quests...
                   </div>
-                  <div className="flex-1">
-                    <div className="flex justify-between mb-2">
-                      <span className="font-bold text-foreground">Earn 50 XP</span>
-                      <span className="font-bold text-foreground/50">{Math.min(dailyXp, 50)}/50</span>
-                    </div>
-                    <div className="h-3 bg-secondary rounded-full overflow-hidden">
-                      <div className="h-full bg-amber-400 transition-all duration-1000" style={{ width: `${Math.min((dailyXp / 50) * 100, 100)}%` }}></div>
-                    </div>
-                  </div>
-                </div>
-                
-                {/* Quest 2 */}
-                <div className="flex items-center">
-                  <div className="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
-                    <Flame className="text-orange-500" size={24} />
-                  </div>
-                  <div className="flex-1">
-                    <div className="flex justify-between mb-2">
-                      <span className="font-bold text-foreground">Keep your streak</span>
-                      <span className="font-bold text-foreground/50">{streak > 0 ? 1 : 0}/1</span>
-                    </div>
-                    <div className="h-3 bg-secondary rounded-full overflow-hidden">
-                      <div className="h-full bg-orange-500 transition-all duration-1000" style={{ width: `${streak > 0 ? 100 : 0}%` }}></div>
-                    </div>
-                  </div>
-                </div>
+                ) : (
+                  quests.slice(0, 2).map((quest, i) => {
+                    const percent = Math.min((quest.current_value / quest.target_value) * 100, 100);
+                    const isComplete = quest.current_value >= quest.target_value;
+                    
+                    return (
+                      <div key={quest.id} className="flex items-center">
+                        <div className={`w-12 h-12 rounded-full flex items-center justify-center mr-4 flex-shrink-0 ${isComplete ? 'bg-amber-100 dark:bg-amber-900/30' : 'bg-secondary'}`}>
+                          {isComplete ? (
+                            <Star className="text-amber-500" size={24} />
+                          ) : (
+                            <Zap className="text-foreground/40" size={24} />
+                          )}
+                        </div>
+                        <div className="flex-1">
+                          <div className="flex justify-between mb-2">
+                            <span className={`font-bold ${quest.is_claimed ? 'text-foreground/50 line-through' : 'text-foreground'}`}>
+                              {quest.title}
+                            </span>
+                            <span className={`font-bold ${isComplete ? 'text-amber-500' : 'text-foreground/50'}`}>
+                              {quest.current_value}/{quest.target_value}
+                            </span>
+                          </div>
+                          <div className="h-3 bg-secondary rounded-full overflow-hidden">
+                            <div 
+                              className={`h-full ${isComplete ? (quest.is_claimed ? 'bg-amber-500/50' : 'bg-amber-400') : 'bg-primary'} transition-all duration-1000`} 
+                              style={{ width: `${percent}%` }}
+                            ></div>
+                          </div>
+                        </div>
+                      </div>
+                    );
+                  })
+                )}
               </div>
             </div>
 

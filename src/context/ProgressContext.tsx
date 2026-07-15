@@ -3,16 +3,30 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import { createClient } from '@/lib/supabase/client';
 
+export interface Quest {
+  id: string;
+  quest_id: string;
+  title: string;
+  description: string;
+  target_value: number;
+  current_value: number;
+  is_claimed: boolean;
+  reward_amount: number;
+}
+
 interface ProgressContextType {
   xp: number;
   streak: number;
   hearts: number;
   emptyAt: number | null;
   completedLessons: string[];
+  quests: Quest[];
   refreshProgress: () => Promise<void>;
   addXpLocally: (amount: number) => void;
   deductHeartLocally: () => void;
   addCompletedLessonLocally: (lessonId: string) => void;
+  updateQuestProgress: (questId: string, amount: number) => Promise<void>;
+  claimQuestReward: (id: string, rewardAmount: number) => Promise<void>;
   isLoading: boolean;
 }
 
@@ -24,7 +38,50 @@ export function ProgressProvider({ children }: { children: React.ReactNode }) {
   const [hearts, setHearts] = useState(5);
   const [emptyAt, setEmptyAt] = useState<number | null>(null);
   const [completedLessons, setCompletedLessons] = useState<string[]>([]);
+  const [quests, setQuests] = useState<Quest[]>([]);
   const [isLoading, setIsLoading] = useState(true);
+
+  // Helper to generate quests if they don't exist
+  const generateDailyQuests = async (supabase: any, userId: string, todayStr: string) => {
+    const defaultQuests = [
+      {
+        user_id: userId,
+        quest_date: todayStr,
+        quest_id: "earn_xp",
+        title: "XP Grinder",
+        description: "Earn 50 XP today.",
+        target_value: 50,
+        reward_amount: 15
+      },
+      {
+        user_id: userId,
+        quest_date: todayStr,
+        quest_id: "complete_lessons",
+        title: "The Scholar",
+        description: "Complete 3 lessons.",
+        target_value: 3,
+        reward_amount: 20
+      },
+      {
+        user_id: userId,
+        quest_date: todayStr,
+        quest_id: "perfect_lesson",
+        title: "Flawless Victory",
+        description: "Complete 1 lesson with no mistakes.",
+        target_value: 1,
+        reward_amount: 25
+      }
+    ];
+
+    try {
+      const { data, error } = await supabase.from('user_quests').insert(defaultQuests).select();
+      if (!error && data) {
+        setQuests(data as Quest[]);
+      }
+    } catch (e) {
+      console.error("Failed to generate quests", e);
+    }
+  };
 
   const fetchProgress = async () => {
     try {
@@ -44,6 +101,23 @@ export function ProgressProvider({ children }: { children: React.ReactNode }) {
           .from("user_completed_lessons")
           .select("lesson_id")
           .eq("user_id", user.id);
+
+        // Fetch Quests for today
+        const todayStr = new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Jakarta' }).format(new Date());
+        const { data: todayQuests, error: questsError } = await supabase
+          .from("user_quests")
+          .select("*")
+          .eq("user_id", user.id)
+          .eq("quest_date", todayStr);
+
+        if (questsError) {
+          console.error("Quests fetch error. Ensure user_quests table exists.", questsError);
+        } else if (todayQuests && todayQuests.length > 0) {
+          setQuests(todayQuests as Quest[]);
+        } else {
+          // No quests for today, generate them
+          await generateDailyQuests(supabase, user.id, todayStr);
+        }
 
         if (profile) {
           // Only update if it's strictly greater (prevents optimistic update flicker)
@@ -91,17 +165,14 @@ export function ProgressProvider({ children }: { children: React.ReactNode }) {
             }
           }
           
-          // Prevent local heart deduction from flickering back if DB is slow
           setHearts(currentHearts);
           setEmptyAt(currentEmptyAt);
-          // Set streak from user_profiles, default to 0
           setStreak(profile.current_streak || 0);
         }
         
         if (completed) {
           setCompletedLessons(prev => {
             const newLessons = completed.map(c => c.lesson_id);
-            // Merge to prevent local optimistic updates from disappearing
             return Array.from(new Set([...prev, ...newLessons]));
           });
         }
@@ -132,7 +203,6 @@ export function ProgressProvider({ children }: { children: React.ReactNode }) {
             { event: 'UPDATE', schema: 'public', table: 'user_profiles', filter: `id=eq.${user.id}` },
             (payload) => {
               if (payload.new) {
-                // Update from DB, but respect optimistic max
                 if (payload.new.points !== undefined) {
                   setXp(prev => Math.max(prev, payload.new.points));
                 }
@@ -151,7 +221,6 @@ export function ProgressProvider({ children }: { children: React.ReactNode }) {
     
     setupRealtime();
 
-    // Also run a timer to check heart regeneration every minute if hearts < 5
     const interval = setInterval(() => {
       setHearts(current => {
         if (current < 5) fetchProgress();
@@ -175,6 +244,8 @@ export function ProgressProvider({ children }: { children: React.ReactNode }) {
 
   const addXpLocally = (amount: number) => {
     setXp(prev => prev + amount);
+    // Also update XP quest if it exists
+    updateQuestProgress("earn_xp", amount);
   };
 
   const deductHeartLocally = () => {
@@ -186,12 +257,68 @@ export function ProgressProvider({ children }: { children: React.ReactNode }) {
       if (!prev.includes(lessonId)) return [...prev, lessonId];
       return prev;
     });
+    // Update lesson quest
+    updateQuestProgress("complete_lessons", 1);
+  };
+
+  const updateQuestProgress = async (questId: string, amount: number) => {
+    setQuests(prev => {
+      const updated = [...prev];
+      const qIndex = updated.findIndex(q => q.quest_id === questId);
+      if (qIndex !== -1 && !updated[qIndex].is_claimed) {
+        const quest = updated[qIndex];
+        if (quest.current_value < quest.target_value) {
+          const newValue = Math.min(quest.target_value, quest.current_value + amount);
+          quest.current_value = newValue;
+          
+          // Fire and forget DB update
+          const supabase = createClient();
+          supabase.from('user_quests')
+            .update({ current_value: newValue })
+            .eq('id', quest.id)
+            .then(({ error }) => {
+              if (error) console.error("Failed to update quest in DB", error);
+            });
+        }
+      }
+      return updated;
+    });
+  };
+
+  const claimQuestReward = async (id: string, rewardAmount: number) => {
+    // 1. Mark as claimed locally
+    setQuests(prev => {
+      const updated = [...prev];
+      const qIndex = updated.findIndex(q => q.id === id);
+      if (qIndex !== -1) {
+        updated[qIndex].is_claimed = true;
+      }
+      return updated;
+    });
+    
+    // 2. Add XP
+    addXpLocally(rewardAmount);
+
+    // 3. Mark as claimed in DB and update XP
+    const supabase = createClient();
+    const { data: { user } } = await supabase.auth.getUser();
+    if (user) {
+      await supabase.from('user_quests')
+        .update({ is_claimed: true })
+        .eq('id', id);
+        
+      const { data: profile } = await supabase.from('user_profiles').select('points').eq('id', user.id).single();
+      if (profile) {
+        await supabase.from('user_profiles').update({ points: profile.points + rewardAmount }).eq('id', user.id);
+      }
+    }
   };
 
   return (
     <ProgressContext.Provider value={{ 
-      xp, streak, hearts, emptyAt, completedLessons, 
+      xp, streak, hearts, emptyAt, completedLessons, quests,
       refreshProgress, addXpLocally, deductHeartLocally, addCompletedLessonLocally, 
+      updateQuestProgress, claimQuestReward,
       isLoading 
     }}>
       {children}
