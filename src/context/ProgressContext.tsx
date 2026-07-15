@@ -52,16 +52,38 @@ export function ProgressProvider({ children }: { children: React.ReactNode }) {
           let currentHearts = profile.hearts !== undefined ? profile.hearts : 5;
           let currentEmptyAt = profile.hearts_empty_at ? new Date(profile.hearts_empty_at).getTime() : null;
           
-          // Heart Regeneration Logic
-          if (currentHearts === 0 && currentEmptyAt) {
+          // Fallback for users stuck due to old bug (hearts < 5 but no timer)
+          if (currentHearts < 5 && !currentEmptyAt) {
+             currentEmptyAt = new Date().getTime();
+             supabase.from("user_profiles")
+               .update({ hearts_empty_at: new Date(currentEmptyAt).toISOString() })
+               .eq("id", user.id)
+               .then(({ error }) => {
+                  if (error) console.error("Failed to set fallback timer in DB", error);
+               });
+          }
+          
+          // Heart Regeneration Logic (1 heart per 30 mins)
+          if (currentHearts < 5 && currentEmptyAt) {
             const now = new Date().getTime();
             const diffMinutes = Math.floor((now - currentEmptyAt) / 1000 / 60);
             
             if (diffMinutes >= 30) {
-              currentHearts = 1;
-              currentEmptyAt = null;
+              const heartsToAdd = Math.floor(diffMinutes / 30);
+              currentHearts = Math.min(5, currentHearts + heartsToAdd);
+              
+              if (currentHearts === 5) {
+                currentEmptyAt = null;
+              } else {
+                // Advance the timer by the exact intervals gained
+                currentEmptyAt = currentEmptyAt + (heartsToAdd * 30 * 60 * 1000);
+              }
+              
               supabase.from("user_profiles")
-                .update({ hearts: 1, hearts_empty_at: null })
+                .update({ 
+                  hearts: currentHearts, 
+                  hearts_empty_at: currentEmptyAt ? new Date(currentEmptyAt).toISOString() : null 
+                })
                 .eq("id", user.id)
                 .then(({ error }) => {
                    if (error) console.error("Failed to restore heart in DB", error);
@@ -129,10 +151,10 @@ export function ProgressProvider({ children }: { children: React.ReactNode }) {
     
     setupRealtime();
 
-    // Also run a timer to check heart regeneration every minute if hearts == 0
+    // Also run a timer to check heart regeneration every minute if hearts < 5
     const interval = setInterval(() => {
       setHearts(current => {
-        if (current === 0) fetchProgress();
+        if (current < 5) fetchProgress();
         return current;
       });
     }, 60000);

@@ -16,7 +16,7 @@ export async function POST(req: Request) {
 
     const { data: profile, error: fetchError } = await supabase
       .from('user_profiles')
-      .select('hearts')
+      .select('hearts, hearts_empty_at')
       .eq('id', userId)
       .single();
 
@@ -33,7 +33,10 @@ export async function POST(req: Request) {
     const newHearts = currentHearts - 1;
     
     const updateData: any = { hearts: newHearts };
-    if (newHearts === 0) {
+    
+    // Start regeneration timer if this is the first lost heart (from 5 to 4) 
+    // or if the timer is somehow null but we have less than 5 hearts
+    if (newHearts < 5 && !profile.hearts_empty_at) {
       updateData.hearts_empty_at = new Date().toISOString();
     }
     

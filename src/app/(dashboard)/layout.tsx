@@ -40,24 +40,23 @@ function TopStats() {
   const [timeToNextHeart, setTimeToNextHeart] = useState("30:00");
   
   useEffect(() => {
-    if (activeModal === 'hearts' && emptyAt && hearts === 0) {
+    if (activeModal === 'hearts' && emptyAt && hearts < 5) {
       const interval = setInterval(() => {
         const now = new Date().getTime();
         const diff = now - emptyAt;
         const remaining = (30 * 60 * 1000) - diff;
         
         if (remaining <= 0) {
-          clearInterval(interval);
-          setTimeToNextHeart("Ready!");
+          setTimeToNextHeart("Refilling...");
         } else {
-          const mins = Math.floor((remaining % (1000 * 60 * 60)) / (1000 * 60));
+          const mins = Math.floor(remaining / (1000 * 60));
           const secs = Math.floor((remaining % (1000 * 60)) / 1000);
           setTimeToNextHeart(`${mins}:${secs < 10 ? '0' : ''}${secs}`);
         }
       }, 1000);
       return () => clearInterval(interval);
     } else {
-      setTimeToNextHeart("30:00");
+      setTimeToNextHeart(hearts === 5 ? "Full" : "30:00");
     }
   }, [activeModal, emptyAt, hearts]);
 
@@ -152,7 +151,7 @@ function TopStats() {
                   {hearts < 5 && emptyAt && (
                     <div className="flex justify-between items-center text-sm font-medium pt-1">
                       <span className="text-foreground/60">Full in:</span>
-                      <span className="text-foreground font-bold">{Math.ceil((emptyAt + 4 * 60 * 60 * 1000 - Date.now()) / (60 * 60 * 1000))} hours</span>
+                      <span className="text-foreground font-bold">{Math.ceil((emptyAt + (5 - hearts) * 30 * 60 * 1000 - Date.now()) / (60 * 1000))} mins</span>
                     </div>
                   )}
                 </div>
