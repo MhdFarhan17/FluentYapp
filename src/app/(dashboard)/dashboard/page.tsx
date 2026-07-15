@@ -108,7 +108,7 @@ const CURRICULUM = [
 ];
 
 export default function DashboardPage() {
-  const { xp, streak, hearts, completedLessons, isLoading, addXpLocally } = useProgress();
+  const { xp, streak, hearts, completedLessons, isLoading, addXpLocally, quests } = useProgress();
   const [dailyXp, setDailyXp] = useState(0);
 
   // Daily Tracker Logic
