@@ -77,31 +77,31 @@ function TopStats() {
   
   return (
     <>
-      <div className="flex items-center space-x-1 sm:space-x-3">
+      <div className="flex items-center space-x-1 sm:space-x-3 overflow-x-auto no-scrollbar">
         {/* Hearts Widget */}
         <button 
           onClick={() => setActiveModal('hearts')}
-          className="flex items-center space-x-1.5 font-bold text-red-500 hover:bg-red-500/10 px-3 py-2 rounded-xl transition-colors relative"
+          className="flex items-center space-x-1 font-bold text-red-500 hover:bg-red-500/10 px-2 py-1.5 sm:px-3 sm:py-2 rounded-xl transition-colors relative flex-shrink-0"
         >
-          <Heart size={20} className={hearts > 0 ? "fill-red-500" : ""} />
+          <Heart size={18} className={`sm:w-5 sm:h-5 ${hearts > 0 ? "fill-red-500" : ""}`} />
           <span className="text-sm sm:text-base">{hearts === 5 ? "MAX" : hearts}</span>
         </button>
 
         {/* Streak Widget */}
         <button 
           onClick={() => setActiveModal('streak')}
-          className="flex items-center space-x-1.5 font-bold text-orange-500 hover:bg-orange-500/10 px-3 py-2 rounded-xl transition-colors relative"
+          className="flex items-center space-x-1 font-bold text-orange-500 hover:bg-orange-500/10 px-2 py-1.5 sm:px-3 sm:py-2 rounded-xl transition-colors relative flex-shrink-0"
         >
-          <Flame size={20} className={streak > 0 ? "fill-orange-500" : ""} />
+          <Flame size={18} className={`sm:w-5 sm:h-5 ${streak > 0 ? "fill-orange-500" : ""}`} />
           <span className="text-sm sm:text-base">{streak}</span>
         </button>
         
         {/* XP Widget */}
         <button 
           onClick={() => setActiveModal('xp')}
-          className="flex items-center space-x-1.5 font-bold text-blue-500 hover:bg-blue-500/10 px-3 py-2 rounded-xl transition-colors relative"
+          className="flex items-center space-x-1 font-bold text-blue-500 hover:bg-blue-500/10 px-2 py-1.5 sm:px-3 sm:py-2 rounded-xl transition-colors relative flex-shrink-0"
         >
-          <Star size={20} className="fill-blue-500" />
+          <Star size={18} className="sm:w-5 sm:h-5 fill-blue-500" />
           <span className="text-sm sm:text-base">{xp}</span>
         </button>
       </div>

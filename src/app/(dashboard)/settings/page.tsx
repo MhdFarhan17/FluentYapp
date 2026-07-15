@@ -392,7 +392,7 @@ export default function SettingsPage() {
                     {/* Toggle Switch */}
                     <button 
                       onClick={() => handleTogglePreference('sound')}
-                      className={`relative w-14 h-8 rounded-full transition-colors duration-300 focus:outline-none focus:ring-4 focus:ring-primary/20 ${soundEnabled ? 'bg-green-500' : 'bg-secondary border-2 border-border'}`}
+                      className={`relative w-14 h-8 rounded-full flex-shrink-0 transition-colors duration-300 focus:outline-none focus:ring-4 focus:ring-primary/20 ${soundEnabled ? 'bg-green-500' : 'bg-secondary border-2 border-border'}`}
                     >
                       <div className={`absolute top-1 left-1 bg-white w-6 h-6 rounded-full transition-transform duration-300 shadow-md ${soundEnabled ? 'translate-x-6' : 'translate-x-0'}`}></div>
                     </button>
@@ -410,7 +410,7 @@ export default function SettingsPage() {
                     </div>
                     <button 
                       onClick={() => handleTogglePreference('reminders')}
-                      className={`relative w-14 h-8 rounded-full transition-colors duration-300 focus:outline-none focus:ring-4 focus:ring-primary/20 ${remindersEnabled ? 'bg-blue-500' : 'bg-secondary border-2 border-border'}`}
+                      className={`relative w-14 h-8 rounded-full flex-shrink-0 transition-colors duration-300 focus:outline-none focus:ring-4 focus:ring-primary/20 ${remindersEnabled ? 'bg-blue-500' : 'bg-secondary border-2 border-border'}`}
                     >
                       <div className={`absolute top-1 left-1 bg-white w-6 h-6 rounded-full transition-transform duration-300 shadow-md ${remindersEnabled ? 'translate-x-6' : 'translate-x-0'}`}></div>
                     </button>
