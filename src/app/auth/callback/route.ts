@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server'
 import { createServerClient } from '@supabase/ssr'
+import { cookies } from 'next/headers'
 
 export async function GET(request: Request) {
   const { searchParams, origin } = new URL(request.url)
@@ -7,20 +8,25 @@ export async function GET(request: Request) {
   const next = searchParams.get('next') ?? '/dashboard'
 
   if (code) {
+    const cookieStore = await cookies()
     const supabase = createServerClient(
       process.env.NEXT_PUBLIC_SUPABASE_URL!,
       process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
       {
         cookies: {
           getAll() {
-            const cookieStore = request.headers.get('cookie') || ''
-            return cookieStore.split(';').map(cookie => {
-              const [name, ...rest] = cookie.trim().split('=')
-              return { name, value: rest.join('=') }
-            }).filter(c => c.name)
+            return cookieStore.getAll()
           },
           setAll(cookiesToSet) {
-            // Cookies will be set in the response below
+            try {
+              cookiesToSet.forEach(({ name, value, options }) =>
+                cookieStore.set(name, value, options)
+              )
+            } catch (error) {
+              // The `setAll` method was called from a Server Component.
+              // This can be ignored if you have middleware refreshing
+              // user sessions.
+            }
           },
         },
       }
@@ -32,39 +38,13 @@ export async function GET(request: Request) {
       const forwardedHost = request.headers.get('x-forwarded-host')
       const isLocalEnv = process.env.NODE_ENV === 'development'
       
-      const response = NextResponse.redirect(
-        isLocalEnv
-          ? `${origin}${next}`
-          : forwardedHost
-            ? `https://${forwardedHost}${next}`
-            : `${origin}${next}`
-      )
-
-      // Set cookies from the supabase exchange
-      const cookieStore = request.headers.get('cookie') || ''
-      const supabaseResponse = createServerClient(
-        process.env.NEXT_PUBLIC_SUPABASE_URL!,
-        process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
-        {
-          cookies: {
-            getAll() {
-              return cookieStore.split(';').map(cookie => {
-                const [name, ...rest] = cookie.trim().split('=')
-                return { name, value: rest.join('=') }
-              }).filter(c => c.name)
-            },
-            setAll(cookiesToSet) {
-              cookiesToSet.forEach(({ name, value, options }) => {
-                response.cookies.set(name, value, options)
-              })
-            },
-          },
-        }
-      )
-
-      await supabaseResponse.auth.exchangeCodeForSession(code)
-
-      return response
+      if (isLocalEnv) {
+        return NextResponse.redirect(`${origin}${next}`)
+      } else if (forwardedHost) {
+        return NextResponse.redirect(`https://${forwardedHost}${next}`)
+      } else {
+        return NextResponse.redirect(`${origin}${next}`)
+      }
     }
   }
 
