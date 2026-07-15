@@ -70,7 +70,7 @@ export default function LeaderboardPage() {
         // Fetch top 15 from user_profiles
         const { data, error } = await supabase
           .from("user_profiles")
-          .select("id, points")
+          .select("id, points, full_name")
           .order("points", { ascending: false })
           .limit(15);
           
@@ -79,7 +79,7 @@ export default function LeaderboardPage() {
         if (data) {
           const formattedPlayers: Player[] = data.map((p, index) => ({
             id: p.id,
-            name: user && user.id === p.id ? "You" : `Learner ${p.id.substring(0, 4).toUpperCase()}`,
+            name: user && user.id === p.id ? "You" : (p.full_name || `Learner ${p.id.substring(0, 4).toUpperCase()}`),
             xp: (user && user.id === p.id) ? Math.max(p.points || 0, currentUserXp) : (p.points || 0)
           }));
           
