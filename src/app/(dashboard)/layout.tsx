@@ -310,7 +310,7 @@ export default function DashboardLayout({
         </div>
 
         {/* Main Content */}
-        <main className="flex-1 flex flex-col lg:ml-72 min-h-screen relative pb-24 lg:pb-0">
+        <main className="flex-1 flex flex-col lg:ml-72 min-h-screen relative pb-28 lg:pb-0">
           {/* Desktop Top Bar */}
           <header className="hidden lg:flex items-center justify-end px-10 py-6 border-b border-border/40 bg-background/50 backdrop-blur-md sticky top-0 z-[100]">
             <TopStats />
@@ -331,7 +331,7 @@ export default function DashboardLayout({
               <Link 
                 key={item.name} 
                 href={item.href}
-                className={`flex flex-col items-center justify-center p-2 rounded-xl min-w-[60px] transition-all ${
+                className={`flex flex-col items-center justify-center p-2 rounded-xl min-w-[48px] transition-all ${
                   isActive 
                     ? "text-primary bg-primary/10" 
                     : "text-foreground/50 hover:text-foreground hover:bg-secondary"

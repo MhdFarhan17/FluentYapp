@@ -106,7 +106,7 @@ export default function PlacementTest() {
           <div className="w-20 h-20 bg-primary/10 text-primary rounded-full flex items-center justify-center mx-auto mb-8">
             <Target size={40} />
           </div>
-          <h1 className="text-4xl md:text-5xl font-extrabold mb-6">Discover Your English Level</h1>
+          <h1 className="text-2xl sm:text-3xl md:text-5xl font-extrabold mb-6">Discover Your English Level</h1>
           <p className="text-xl text-foreground/70 mb-12 max-w-2xl mx-auto leading-relaxed font-medium">
             Take our comprehensive 25-question adaptive test. Powered by a smart algorithm, this assessment accurately maps your skills to the official CEFR framework (A1 - C2).
           </p>
@@ -144,7 +144,7 @@ export default function PlacementTest() {
 
       {/* QUIZ STEP */}
       {step === "quiz" && (
-        <div className="max-w-2xl w-full px-4 w-full mt-4 animate-in slide-in-from-bottom-8 duration-500">
+        <div className="max-w-2xl w-full px-4 mt-4 animate-in slide-in-from-bottom-8 duration-500">
           {/* Progress Bar */}
           <div className="mb-10">
             <div className="flex justify-between items-center mb-2">
@@ -161,7 +161,7 @@ export default function PlacementTest() {
             </div>
           </div>
           
-          <div className="bg-background border-2 border-border p-8 md:p-12 rounded-3xl shadow-xl min-h-[400px] flex flex-col relative overflow-hidden">
+          <div className="bg-background border-2 border-border p-5 sm:p-8 md:p-12 rounded-3xl shadow-xl min-h-[400px] flex flex-col relative overflow-hidden">
              {/* Subtle watermark showing level estimation to make it look professional */}
              <div className="absolute top-4 right-4 text-xs font-bold bg-secondary px-3 py-1 rounded-full text-foreground/40 border border-border">
                Calibrating Level...
@@ -225,7 +225,7 @@ export default function PlacementTest() {
             <span className="text-sm font-semibold text-foreground/80">Assessment Complete</span>
           </div>
           
-          <h1 className="text-4xl md:text-5xl font-extrabold mb-4">Your English Level is</h1>
+          <h1 className="text-2xl sm:text-3xl md:text-5xl font-extrabold mb-4">Your English Level is</h1>
           
           {/* Level Card */}
           <div className="bg-gradient-to-br from-primary to-accent p-1 rounded-3xl shadow-2xl max-w-xl mx-auto my-10 transform hover:scale-105 transition-transform duration-500">

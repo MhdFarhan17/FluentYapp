@@ -15,10 +15,10 @@ const CURRICULUM = [
     iconColor: "text-blue-300",
     lessons: [
       { id: "basics-1", title: "Basics 1", color: "bg-blue-500", shadow: "shadow-[0_8px_0_0_#1d4ed8]", position: "translate-x-0", requires: "" },
-      { id: "basics-2", title: "Basics 2", color: "bg-purple-500", shadow: "shadow-[0_8px_0_0_#7e22ce]", position: "translate-x-12 md:translate-x-20", requires: "basics-1" },
-      { id: "phrases-1", title: "Phrases", color: "bg-pink-500", shadow: "shadow-[0_8px_0_0_#be185d]", position: "-translate-x-12 md:-translate-x-20", requires: "basics-2" },
+      { id: "basics-2", title: "Basics 2", color: "bg-purple-500", shadow: "shadow-[0_8px_0_0_#7e22ce]", position: "translate-x-6 sm:translate-x-12 md:translate-x-20", requires: "basics-1" },
+      { id: "phrases-1", title: "Phrases", color: "bg-pink-500", shadow: "shadow-[0_8px_0_0_#be185d]", position: "-translate-x-6 sm:-translate-x-12 md:-translate-x-20", requires: "basics-2" },
       { id: "food-1", title: "Food", color: "bg-orange-500", shadow: "shadow-[0_8px_0_0_#c2410c]", position: "translate-x-0", requires: "phrases-1" },
-      { id: "animals-1", title: "Animals", color: "bg-green-500", shadow: "shadow-[0_8px_0_0_#15803d]", position: "translate-x-12 md:translate-x-20", requires: "food-1" },
+      { id: "animals-1", title: "Animals", color: "bg-green-500", shadow: "shadow-[0_8px_0_0_#15803d]", position: "translate-x-6 sm:translate-x-12 md:translate-x-20", requires: "food-1" },
     ]
   },
   {
@@ -28,10 +28,10 @@ const CURRICULUM = [
     bgColor: "bg-purple-600",
     iconColor: "text-purple-300",
     lessons: [
-      { id: "plurals-1", title: "Plurals", color: "bg-purple-500", shadow: "shadow-[0_8px_0_0_#7e22ce]", position: "-translate-x-12 md:-translate-x-20", requires: "animals-1" },
+      { id: "plurals-1", title: "Plurals", color: "bg-purple-500", shadow: "shadow-[0_8px_0_0_#7e22ce]", position: "-translate-x-6 sm:-translate-x-12 md:-translate-x-20", requires: "animals-1" },
       { id: "adjectives-1", title: "Adjectives", color: "bg-pink-500", shadow: "shadow-[0_8px_0_0_#be185d]", position: "translate-x-0", requires: "plurals-1" },
-      { id: "present-tense-1", title: "Present Tense", color: "bg-blue-500", shadow: "shadow-[0_8px_0_0_#1d4ed8]", position: "translate-x-12 md:translate-x-20", requires: "adjectives-1" },
-      { id: "clothing-1", title: "Clothing", color: "bg-orange-500", shadow: "shadow-[0_8px_0_0_#c2410c]", position: "-translate-x-12 md:-translate-x-20", requires: "present-tense-1" },
+      { id: "present-tense-1", title: "Present Tense", color: "bg-blue-500", shadow: "shadow-[0_8px_0_0_#1d4ed8]", position: "translate-x-6 sm:translate-x-12 md:translate-x-20", requires: "adjectives-1" },
+      { id: "clothing-1", title: "Clothing", color: "bg-orange-500", shadow: "shadow-[0_8px_0_0_#c2410c]", position: "-translate-x-6 sm:-translate-x-12 md:-translate-x-20", requires: "present-tense-1" },
       { id: "colors-1", title: "Colors", color: "bg-green-500", shadow: "shadow-[0_8px_0_0_#15803d]", position: "translate-x-0", requires: "clothing-1" },
     ]
   },
@@ -42,11 +42,11 @@ const CURRICULUM = [
     bgColor: "bg-pink-600",
     iconColor: "text-pink-300",
     lessons: [
-      { id: "questions-1", title: "Questions", color: "bg-pink-500", shadow: "shadow-[0_8px_0_0_#be185d]", position: "translate-x-12 md:translate-x-20", requires: "colors-1" },
-      { id: "prepositions-1", title: "Prepositions", color: "bg-blue-500", shadow: "shadow-[0_8px_0_0_#1d4ed8]", position: "-translate-x-12 md:-translate-x-20", requires: "questions-1" },
+      { id: "questions-1", title: "Questions", color: "bg-pink-500", shadow: "shadow-[0_8px_0_0_#be185d]", position: "translate-x-6 sm:translate-x-12 md:translate-x-20", requires: "colors-1" },
+      { id: "prepositions-1", title: "Prepositions", color: "bg-blue-500", shadow: "shadow-[0_8px_0_0_#1d4ed8]", position: "-translate-x-6 sm:-translate-x-12 md:-translate-x-20", requires: "questions-1" },
       { id: "time-1", title: "Time", color: "bg-orange-500", shadow: "shadow-[0_8px_0_0_#c2410c]", position: "translate-x-0", requires: "prepositions-1" },
-      { id: "family-1", title: "Family", color: "bg-purple-500", shadow: "shadow-[0_8px_0_0_#7e22ce]", position: "translate-x-12 md:translate-x-20", requires: "time-1" },
-      { id: "jobs-1", title: "Jobs", color: "bg-green-500", shadow: "shadow-[0_8px_0_0_#15803d]", position: "-translate-x-12 md:-translate-x-20", requires: "family-1" },
+      { id: "family-1", title: "Family", color: "bg-purple-500", shadow: "shadow-[0_8px_0_0_#7e22ce]", position: "translate-x-6 sm:translate-x-12 md:translate-x-20", requires: "time-1" },
+      { id: "jobs-1", title: "Jobs", color: "bg-green-500", shadow: "shadow-[0_8px_0_0_#15803d]", position: "-translate-x-6 sm:-translate-x-12 md:-translate-x-20", requires: "family-1" },
     ]
   },
   {
@@ -57,10 +57,10 @@ const CURRICULUM = [
     iconColor: "text-orange-200",
     lessons: [
       { id: "travel-1", title: "Travel", color: "bg-orange-500", shadow: "shadow-[0_8px_0_0_#c2410c]", position: "translate-x-0", requires: "jobs-1" },
-      { id: "restaurant-1", title: "Restaurant", color: "bg-blue-500", shadow: "shadow-[0_8px_0_0_#1d4ed8]", position: "translate-x-12 md:translate-x-20", requires: "travel-1" },
-      { id: "shopping-1", title: "Shopping", color: "bg-pink-500", shadow: "shadow-[0_8px_0_0_#be185d]", position: "-translate-x-12 md:-translate-x-20", requires: "restaurant-1" },
+      { id: "restaurant-1", title: "Restaurant", color: "bg-blue-500", shadow: "shadow-[0_8px_0_0_#1d4ed8]", position: "translate-x-6 sm:translate-x-12 md:translate-x-20", requires: "travel-1" },
+      { id: "shopping-1", title: "Shopping", color: "bg-pink-500", shadow: "shadow-[0_8px_0_0_#be185d]", position: "-translate-x-6 sm:-translate-x-12 md:-translate-x-20", requires: "restaurant-1" },
       { id: "health-1", title: "Health", color: "bg-purple-500", shadow: "shadow-[0_8px_0_0_#7e22ce]", position: "translate-x-0", requires: "shopping-1" },
-      { id: "hobbies-1", title: "Hobbies", color: "bg-green-500", shadow: "shadow-[0_8px_0_0_#15803d]", position: "translate-x-12 md:translate-x-20", requires: "health-1" },
+      { id: "hobbies-1", title: "Hobbies", color: "bg-green-500", shadow: "shadow-[0_8px_0_0_#15803d]", position: "translate-x-6 sm:translate-x-12 md:translate-x-20", requires: "health-1" },
     ]
   },
   {
@@ -70,10 +70,10 @@ const CURRICULUM = [
     bgColor: "bg-teal-600",
     iconColor: "text-teal-300",
     lessons: [
-      { id: "business-1", title: "Business", color: "bg-teal-500", shadow: "shadow-[0_8px_0_0_#0f766e]", position: "-translate-x-12 md:-translate-x-20", requires: "hobbies-1" },
+      { id: "business-1", title: "Business", color: "bg-teal-500", shadow: "shadow-[0_8px_0_0_#0f766e]", position: "-translate-x-6 sm:-translate-x-12 md:-translate-x-20", requires: "hobbies-1" },
       { id: "emails-1", title: "Emails", color: "bg-blue-500", shadow: "shadow-[0_8px_0_0_#1d4ed8]", position: "translate-x-0", requires: "business-1" },
-      { id: "interview-1", title: "Interview", color: "bg-orange-500", shadow: "shadow-[0_8px_0_0_#c2410c]", position: "translate-x-12 md:translate-x-20", requires: "emails-1" },
-      { id: "tech-1", title: "Tech", color: "bg-purple-500", shadow: "shadow-[0_8px_0_0_#7e22ce]", position: "-translate-x-12 md:-translate-x-20", requires: "interview-1" },
+      { id: "interview-1", title: "Interview", color: "bg-orange-500", shadow: "shadow-[0_8px_0_0_#c2410c]", position: "translate-x-6 sm:translate-x-12 md:translate-x-20", requires: "emails-1" },
+      { id: "tech-1", title: "Tech", color: "bg-purple-500", shadow: "shadow-[0_8px_0_0_#7e22ce]", position: "-translate-x-6 sm:-translate-x-12 md:-translate-x-20", requires: "interview-1" },
       { id: "finance-1", title: "Finance", color: "bg-green-500", shadow: "shadow-[0_8px_0_0_#15803d]", position: "translate-x-0", requires: "tech-1" },
     ]
   },
@@ -84,11 +84,11 @@ const CURRICULUM = [
     bgColor: "bg-indigo-600",
     iconColor: "text-indigo-300",
     lessons: [
-      { id: "past-tense-1", title: "Past Tense", color: "bg-indigo-500", shadow: "shadow-[0_8px_0_0_#3730a3]", position: "translate-x-12 md:translate-x-20", requires: "finance-1" },
-      { id: "future-tense-1", title: "Future Tense", color: "bg-pink-500", shadow: "shadow-[0_8px_0_0_#be185d]", position: "-translate-x-12 md:-translate-x-20", requires: "past-tense-1" },
+      { id: "past-tense-1", title: "Past Tense", color: "bg-indigo-500", shadow: "shadow-[0_8px_0_0_#3730a3]", position: "translate-x-6 sm:translate-x-12 md:translate-x-20", requires: "finance-1" },
+      { id: "future-tense-1", title: "Future Tense", color: "bg-pink-500", shadow: "shadow-[0_8px_0_0_#be185d]", position: "-translate-x-6 sm:-translate-x-12 md:-translate-x-20", requires: "past-tense-1" },
       { id: "idioms-1", title: "Idioms", color: "bg-blue-500", shadow: "shadow-[0_8px_0_0_#1d4ed8]", position: "translate-x-0", requires: "future-tense-1" },
-      { id: "slang-1", title: "Slang", color: "bg-orange-500", shadow: "shadow-[0_8px_0_0_#c2410c]", position: "translate-x-12 md:translate-x-20", requires: "idioms-1" },
-      { id: "conditionals-1", title: "Conditionals", color: "bg-green-500", shadow: "shadow-[0_8px_0_0_#15803d]", position: "-translate-x-12 md:-translate-x-20", requires: "slang-1" },
+      { id: "slang-1", title: "Slang", color: "bg-orange-500", shadow: "shadow-[0_8px_0_0_#c2410c]", position: "translate-x-6 sm:translate-x-12 md:translate-x-20", requires: "idioms-1" },
+      { id: "conditionals-1", title: "Conditionals", color: "bg-green-500", shadow: "shadow-[0_8px_0_0_#15803d]", position: "-translate-x-6 sm:-translate-x-12 md:-translate-x-20", requires: "slang-1" },
     ]
   },
   {
@@ -99,10 +99,10 @@ const CURRICULUM = [
     iconColor: "text-red-300",
     lessons: [
       { id: "commute-jkt", title: "Commute", color: "bg-red-500", shadow: "shadow-[0_8px_0_0_#991b1b]", position: "translate-x-0", requires: "conditionals-1" },
-      { id: "streetfood-jkt", title: "Street Food", color: "bg-orange-500", shadow: "shadow-[0_8px_0_0_#c2410c]", position: "translate-x-12 md:translate-x-20", requires: "commute-jkt" },
-      { id: "social-jkt", title: "Social", color: "bg-purple-500", shadow: "shadow-[0_8px_0_0_#7e22ce]", position: "-translate-x-12 md:-translate-x-20", requires: "streetfood-jkt" },
+      { id: "streetfood-jkt", title: "Street Food", color: "bg-orange-500", shadow: "shadow-[0_8px_0_0_#c2410c]", position: "translate-x-6 sm:translate-x-12 md:translate-x-20", requires: "commute-jkt" },
+      { id: "social-jkt", title: "Social", color: "bg-purple-500", shadow: "shadow-[0_8px_0_0_#7e22ce]", position: "-translate-x-6 sm:-translate-x-12 md:-translate-x-20", requires: "streetfood-jkt" },
       { id: "housing-jkt", title: "Housing", color: "bg-blue-500", shadow: "shadow-[0_8px_0_0_#1d4ed8]", position: "translate-x-0", requires: "social-jkt" },
-      { id: "office-jkt", title: "Office", color: "bg-green-500", shadow: "shadow-[0_8px_0_0_#15803d]", position: "translate-x-12 md:translate-x-20", requires: "housing-jkt" },
+      { id: "office-jkt", title: "Office", color: "bg-green-500", shadow: "shadow-[0_8px_0_0_#15803d]", position: "translate-x-6 sm:translate-x-12 md:translate-x-20", requires: "housing-jkt" },
     ]
   }
 ];
@@ -220,7 +220,7 @@ export default function DashboardPage() {
                     >
                       
                       {/* Tooltip description */}
-                      <div className={`mb-4 px-6 py-3 rounded-2xl text-sm font-extrabold shadow-xl whitespace-nowrap transition-all duration-300 relative ${
+                      <div className={`mb-4 px-6 py-3 rounded-2xl text-sm font-extrabold shadow-xl whitespace-nowrap max-w-[180px] truncate transition-all duration-300 relative ${
                         isCurrent 
                           ? "bg-foreground text-background opacity-100 translate-y-0 scale-110 border-2 border-foreground/10" 
                           : "bg-background border-2 border-border text-foreground opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 hidden md:block"
@@ -275,6 +275,22 @@ export default function DashboardPage() {
               <p className="mt-6 font-extrabold text-foreground/40 uppercase tracking-[0.2em] text-sm">Next Section Coming Soon</p>
             </div>
 
+        </div>
+
+        {/* Mobile Quick Access Cards */}
+        <div className="lg:hidden grid grid-cols-3 gap-3 mb-6">
+          <Link href="/leaderboard" className="bg-background rounded-2xl p-4 border-2 border-border shadow-sm flex flex-col items-center text-center hover:border-primary/50 transition-colors">
+            <Trophy className="text-yellow-500 mb-2" size={24} />
+            <span className="text-xs font-bold text-foreground/70">Leaderboard</span>
+          </Link>
+          <Link href="/quests" className="bg-background rounded-2xl p-4 border-2 border-border shadow-sm flex flex-col items-center text-center hover:border-primary/50 transition-colors">
+            <Star className="text-amber-500 mb-2" size={24} />
+            <span className="text-xs font-bold text-foreground/70">Quests</span>
+          </Link>
+          <Link href="/achievements" className="bg-background rounded-2xl p-4 border-2 border-border shadow-sm flex flex-col items-center text-center hover:border-primary/50 transition-colors">
+            <Zap className="text-pink-500 mb-2" size={24} />
+            <span className="text-xs font-bold text-foreground/70">Achievements</span>
+          </Link>
         </div>
 
         {/* Right Column: Premium Sticky Sidebar */}

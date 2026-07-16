@@ -109,10 +109,10 @@ export default function QuestsPage() {
                 const colors = getQuestColors(quest.quest_id);
                 
                 return (
-                  <div key={quest.id} className={`p-4 md:p-6 flex flex-col sm:flex-row sm:items-center ${index !== quests.length - 1 ? 'border-b-2 border-border/50' : ''}`}>
+                  <div key={quest.id} className={`p-4 md:p-6 flex flex-row items-center ${index !== quests.length - 1 ? 'border-b-2 border-border/50' : ''}`}>
                     
                     {/* Quest Icon */}
-                    <div className={`w-16 h-16 rounded-2xl flex items-center justify-center flex-shrink-0 mb-4 sm:mb-0 sm:mr-6 shadow-inner border-2 border-background ${colors.bg}`}>
+                    <div className={`w-12 h-12 sm:w-16 sm:h-16 rounded-2xl flex items-center justify-center flex-shrink-0 mr-4 sm:mr-6 shadow-inner border-2 border-background ${colors.bg}`}>
                       {quest.is_claimed ? (
                         <CheckCircle2 size={32} className={colors.text} />
                       ) : (
@@ -121,7 +121,7 @@ export default function QuestsPage() {
                     </div>
 
                     {/* Quest Content */}
-                    <div className="flex-1 min-w-0 mb-4 sm:mb-0">
+                    <div className="flex-1 min-w-0">
                       <div className="flex justify-between items-end mb-2">
                         <div>
                           <h3 className={`text-lg font-extrabold truncate ${quest.is_claimed ? 'text-foreground/50 line-through' : 'text-foreground'}`}>
@@ -181,7 +181,7 @@ export default function QuestsPage() {
             Monthly Challenge
           </h2>
 
-          <div className="bg-background rounded-3xl border-2 border-border shadow-sm p-8 text-center relative overflow-hidden flex flex-col items-center justify-center min-h-[400px]">
+          <div className="bg-background rounded-3xl border-2 border-border shadow-sm p-8 text-center relative overflow-hidden flex flex-col items-center justify-center min-h-[300px] sm:min-h-[400px]">
             
             <div className="absolute inset-0 bg-gradient-to-b from-purple-500/5 to-transparent pointer-events-none"></div>
             
@@ -193,13 +193,13 @@ export default function QuestsPage() {
             <div className={`relative mb-8 transition-transform duration-700 hover:scale-105 ${isMonthlyComplete ? 'animate-pulse-slow' : ''}`}>
               <div className={`absolute inset-0 rounded-full blur-2xl opacity-50 ${isMonthlyComplete ? 'bg-purple-500' : 'bg-foreground/10'}`}></div>
               
-              <div className={`w-40 h-40 rounded-full flex items-center justify-center relative z-10 border-[6px] shadow-[0_20px_50px_rgba(0,0,0,0.1),inset_0_4px_20px_rgba(255,255,255,0.5)] overflow-hidden
+              <div className={`w-28 h-28 sm:w-40 sm:h-40 rounded-full flex items-center justify-center relative z-10 border-[6px] shadow-[0_20px_50px_rgba(0,0,0,0.1),inset_0_4px_20px_rgba(255,255,255,0.5)] overflow-hidden
                 ${isMonthlyComplete 
                   ? 'border-purple-300 bg-gradient-to-br from-purple-400 via-fuchsia-500 to-indigo-600' 
                   : 'border-border bg-secondary grayscale'
                 }
               `}>
-                <Medal size={80} className={`${isMonthlyComplete ? 'text-white drop-shadow-[0_4px_10px_rgba(0,0,0,0.3)]' : 'text-foreground/30'}`} />
+                <Medal size={48} className={`sm:w-20 sm:h-20 ${isMonthlyComplete ? 'text-white drop-shadow-[0_4px_10px_rgba(0,0,0,0.3)]' : 'text-foreground/30'}`} />
                 
                 <div className="absolute top-0 -left-[100%] w-1/2 h-full bg-gradient-to-r from-transparent via-white/40 to-transparent skew-x-[-25deg] animate-[shine_3s_infinite]"></div>
               </div>

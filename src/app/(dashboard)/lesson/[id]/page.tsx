@@ -509,7 +509,7 @@ export default function LessonPage() {
       </div>
 
       {/* Main Content Area */}
-      <main key={animationKey} className={`flex-1 max-w-2xl w-full mx-auto p-4 flex flex-col justify-center mb-32 animate-in fade-in slide-in-from-right-8 duration-500 ease-out ${checkResult === 'wrong' ? 'animate-shake' : ''}`}>
+      <main key={animationKey} className={`flex-1 max-w-2xl w-full mx-auto p-4 flex flex-col justify-center mb-40 animate-in fade-in slide-in-from-right-8 duration-500 ease-out ${checkResult === 'wrong' ? 'animate-shake' : ''}`}>
         <h2 className="text-2xl sm:text-3xl font-extrabold mb-6 md:mb-8 text-foreground tracking-tight">{currentExercise.question}</h2>
 
         {/* Dynamic Exercise Area */}
@@ -553,7 +553,7 @@ export default function LessonPage() {
                     key={idx}
                     onClick={() => checkResult === 'idle' && handleWordBankRemove(idx)}
                     disabled={checkResult !== 'idle'}
-                    className="px-5 py-3 bg-background border-2 border-b-[4px] border-border rounded-2xl font-bold text-lg hover:bg-secondary active:translate-y-[4px] active:border-b-0 transition-all text-foreground shadow-sm animate-in zoom-in duration-200"
+                    className="px-3 py-2 text-base sm:px-5 sm:py-3 sm:text-lg bg-background border-2 border-b-[4px] border-border rounded-2xl font-bold hover:bg-secondary active:translate-y-[4px] active:border-b-0 transition-all text-foreground shadow-sm animate-in zoom-in duration-200"
                   >
                     {word}
                   </button>
@@ -571,7 +571,7 @@ export default function LessonPage() {
                       key={idx}
                       onClick={() => !disabled && handleWordBankClick(word)}
                       disabled={disabled}
-                      className={`px-5 py-3 border-2 rounded-2xl font-bold text-lg transition-all ${
+                      className={`px-3 py-2 text-base sm:px-5 sm:py-3 sm:text-lg border-2 rounded-2xl font-bold transition-all ${
                         disabled 
                           ? "bg-secondary text-transparent border-transparent shadow-none" 
                           : "bg-background border-b-[4px] border-border text-foreground hover:bg-secondary active:translate-y-[4px] active:border-b-0 shadow-sm"

@@ -88,7 +88,7 @@ export default function ReviewPage() {
         </div>
       ) : (
         <div className="space-y-6">
-          <div className="flex items-center justify-between mb-2">
+          <div className="flex items-center justify-between flex-wrap gap-2 mb-2">
             <h2 className="text-2xl font-extrabold text-foreground flex items-center">
               <Flame className="mr-2 text-orange-500" /> 
               Your Top Mistakes

@@ -27,7 +27,7 @@ export default function About() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-5xl md:text-7xl font-black tracking-tight mb-8 leading-[1.1]"
+            className="text-3xl sm:text-4xl md:text-7xl font-black tracking-tight mb-8 leading-[1.1]"
           >
             We are redefining how the <br className="hidden md:block" />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-accent to-blue-500">world learns English.</span>
@@ -55,7 +55,7 @@ export default function About() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.7 }}
-              className="bg-background/80 backdrop-blur-xl border border-border/80 p-10 md:p-14 rounded-[3rem] shadow-sm hover:shadow-2xl transition-all duration-500 relative overflow-hidden group"
+              className="bg-background/80 backdrop-blur-xl border border-border/80 p-6 sm:p-8 md:p-14 rounded-2xl sm:rounded-[3rem] shadow-sm hover:shadow-2xl transition-all duration-500 relative overflow-hidden group"
             >
               <div className="absolute top-0 right-0 w-32 h-32 bg-red-500/5 rounded-bl-full -z-10 group-hover:scale-150 transition-transform duration-700" />
               <div className="w-16 h-16 bg-red-500/10 text-red-500 rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-500 shadow-inner">
@@ -73,7 +73,7 @@ export default function About() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.7, delay: 0.2 }}
-              className="bg-gradient-to-br from-primary to-blue-600 text-white p-10 md:p-14 rounded-[3rem] shadow-xl relative overflow-hidden group"
+              className="bg-gradient-to-br from-primary to-blue-600 text-white p-6 sm:p-8 md:p-14 rounded-2xl sm:rounded-[3rem] shadow-xl relative overflow-hidden group"
             >
               <div className="absolute -right-10 -top-10 w-64 h-64 bg-white/10 rounded-full blur-3xl group-hover:bg-white/20 group-hover:scale-150 transition-all duration-700 pointer-events-none" />
               <div className="w-16 h-16 bg-white/20 text-white rounded-2xl flex items-center justify-center mb-8 backdrop-blur-md shadow-inner group-hover:scale-110 transition-transform duration-500">
@@ -105,7 +105,7 @@ export default function About() {
                 transition={{ duration: 0.6, delay: stat.delay }}
                 className="pt-8 md:pt-0 flex flex-col items-center justify-center"
               >
-                <div className={`text-6xl md:text-7xl font-black ${stat.color} mb-4 tracking-tighter drop-shadow-sm`}>
+                <div className={`text-4xl sm:text-5xl md:text-7xl font-black ${stat.color} mb-4 tracking-tighter drop-shadow-sm`}>
                   {stat.value}
                 </div>
                 <p className="text-xl text-foreground/70 font-bold uppercase tracking-wider">{stat.label}</p>
@@ -119,7 +119,7 @@ export default function About() {
       <section className="w-full py-32 bg-gradient-to-b from-secondary/40 to-background border-t border-border/60 relative overflow-hidden">
         <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-full h-1 bg-gradient-to-r from-transparent via-primary/30 to-transparent"></div>
         
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center gap-16 lg:gap-24">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center gap-8 sm:gap-12 lg:gap-24">
           <motion.div 
             initial={{ opacity: 0, x: -50, rotate: -10 }}
             whileInView={{ opacity: 1, x: 0, rotate: 0 }}

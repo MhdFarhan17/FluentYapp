@@ -9,7 +9,7 @@ export default function Home() {
   return (
     <div className="flex flex-col items-center">
       {/* Hero Section */}
-      <section className="w-full relative overflow-hidden bg-background pt-20 pb-32">
+      <section className="w-full relative overflow-hidden bg-background pt-20 pb-16 sm:pb-24 lg:pb-32">
         <div className="absolute top-0 left-0 w-full h-full overflow-hidden -z-10">
           <div className="absolute -top-[20%] -right-[10%] w-[50%] h-[50%] rounded-full bg-primary/5 blur-[100px]" />
           <div className="absolute top-[40%] -left-[10%] w-[40%] h-[40%] rounded-full bg-accent/5 blur-[100px]" />
@@ -30,12 +30,12 @@ export default function Home() {
                 <span className="text-sm font-semibold text-foreground/80">100% Free. Zero Hidden Costs.</span>
               </div>
               
-              <h1 className="text-5xl lg:text-7xl font-extrabold tracking-tight text-foreground leading-[1.1]">
+              <h1 className="text-3xl sm:text-4xl lg:text-7xl font-extrabold tracking-tight text-foreground leading-[1.1]">
                 Master English<br/>
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">Like a Native.</span>
               </h1>
               
-              <p className="text-xl text-foreground/70 max-w-xl leading-relaxed font-medium">
+              <p className="text-base sm:text-lg lg:text-xl text-foreground/70 max-w-xl leading-relaxed font-medium">
                 Forget boring textbooks. Master real-world English through bite-sized, interactive lessons. Our smart adaptive curriculum aligns with global CEFR standards to perfectly match your unique skill level.
               </p>
               
@@ -154,14 +154,14 @@ export default function Home() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.8 }}
-            className="flex flex-col lg:flex-row items-center gap-16 mb-32"
+            className="flex flex-col lg:flex-row items-center gap-16 mb-16 sm:mb-24 lg:mb-32"
           >
             <div className="flex-1 space-y-6">
               <div className="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center text-primary mb-2">
                 <BrainCircuit size={32} />
               </div>
-              <h2 className="text-4xl font-extrabold tracking-tight">Smart Review System</h2>
-              <p className="text-xl text-foreground/70 font-medium leading-relaxed">
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight">Smart Review System</h2>
+              <p className="text-base sm:text-lg lg:text-xl text-foreground/70 font-medium leading-relaxed">
                 Our Smart Algorithm constantly monitors your performance. Every mistake you make is logged, analyzed, and transformed into personalized review sessions. You'll never make the same mistake twice.
               </p>
               <ul className="space-y-4 pt-4">
@@ -210,14 +210,14 @@ export default function Home() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.8 }}
-            className="flex flex-col lg:flex-row-reverse items-center gap-16 mb-32"
+            className="flex flex-col lg:flex-row-reverse items-center gap-16 mb-16 sm:mb-24 lg:mb-32"
           >
             <div className="flex-1 space-y-6">
               <div className="w-14 h-14 bg-orange-500/10 rounded-2xl flex items-center justify-center text-orange-500 mb-2">
                 <Flame size={32} />
               </div>
-              <h2 className="text-4xl font-extrabold tracking-tight">Stay Addicted to Learning</h2>
-              <p className="text-xl text-foreground/70 font-medium leading-relaxed">
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight">Stay Addicted to Learning</h2>
+              <p className="text-base sm:text-lg lg:text-xl text-foreground/70 font-medium leading-relaxed">
                 Learning a language is a marathon, not a sprint. Maintain your daily streak, compete in global leaderboards, and unlock exclusive achievements to stay motivated every single day.
               </p>
               <ul className="space-y-4 pt-4">
@@ -269,8 +269,8 @@ export default function Home() {
               <div className="w-14 h-14 bg-accent/10 rounded-2xl flex items-center justify-center text-accent mb-2">
                 <Smartphone size={32} />
               </div>
-              <h2 className="text-4xl font-extrabold tracking-tight">Learn Anywhere, Anytime</h2>
-              <p className="text-xl text-foreground/70 font-medium leading-relaxed">
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight">Learn Anywhere, Anytime</h2>
+              <p className="text-base sm:text-lg lg:text-xl text-foreground/70 font-medium leading-relaxed">
                 FluentYapp is a Progressive Web App (PWA). Install it directly on your iOS, Android, or Desktop device without going through an App Store. Enjoy a seamless, fullscreen native experience.
               </p>
               
@@ -295,7 +295,7 @@ export default function Home() {
                </div>
 
                {/* The Phone */}
-               <div className="w-[320px] h-[650px] bg-black border-[12px] border-zinc-800 dark:border-zinc-900 rounded-[3.5rem] shadow-2xl relative overflow-hidden flex flex-col group">
+               <div className="w-[260px] h-[520px] sm:w-[320px] sm:h-[650px] bg-black border-[12px] border-zinc-800 dark:border-zinc-900 rounded-[3.5rem] shadow-2xl relative overflow-hidden flex flex-col group">
                  {/* Dynamic Island / Notch */}
                  <div className="h-7 w-[120px] bg-black absolute top-2 left-1/2 transform -translate-x-1/2 rounded-full z-30 flex items-center justify-between px-2">
                    <div className="w-2 h-2 rounded-full bg-zinc-800" />
@@ -369,8 +369,8 @@ export default function Home() {
           <div className="w-28 h-28 mx-auto mb-8 relative">
             <Image src="/logo.png" alt="FluentYapp Owl" fill className="object-contain hover:scale-110 transition-transform duration-500" />
           </div>
-          <h2 className="text-5xl md:text-6xl font-extrabold mb-6 tracking-tight">Ready to start yapping?</h2>
-          <p className="text-xl text-foreground/70 mb-10 font-medium max-w-2xl mx-auto">
+          <h2 className="text-3xl sm:text-4xl md:text-6xl font-extrabold mb-6 tracking-tight">Ready to start yapping?</h2>
+          <p className="text-base sm:text-lg lg:text-xl text-foreground/70 mb-10 font-medium max-w-2xl mx-auto">
             Join FluentYapp today. It's 100% free forever. No credit cards, no hidden fees. Just pure language mastery.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">

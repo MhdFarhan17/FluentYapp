@@ -24,7 +24,7 @@ export default function Contact() {
              <MessageSquare size={18} className="text-primary" />
              <span className="text-sm font-extrabold tracking-widest text-foreground/80 uppercase">Get in Touch</span>
           </div>
-          <h1 className="text-5xl md:text-7xl font-black tracking-tight mb-8 leading-tight">
+          <h1 className="text-3xl sm:text-4xl md:text-7xl font-black tracking-tight mb-8 leading-tight">
             Let's Start a <br className="hidden md:block"/>
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">Conversation.</span>
           </h1>
@@ -33,14 +33,14 @@ export default function Contact() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 sm:gap-12 lg:gap-24 items-center">
           
           {/* Contact Form */}
           <motion.div 
             initial={{ opacity: 0, x: -40 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="bg-background/60 backdrop-blur-xl p-10 md:p-14 rounded-[3rem] border border-border/80 shadow-2xl relative overflow-hidden"
+            className="bg-background/60 backdrop-blur-xl p-6 sm:p-8 md:p-14 rounded-2xl sm:rounded-[3rem] border border-border/80 shadow-2xl relative overflow-hidden"
           >
             <div className="absolute top-0 right-0 w-32 h-32 bg-primary/10 rounded-bl-[100px] -z-10" />
             

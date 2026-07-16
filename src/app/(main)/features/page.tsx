@@ -98,7 +98,7 @@ export default function Features() {
              <ShieldCheck size={18} className="text-primary" />
              <span className="text-sm font-extrabold tracking-widest text-foreground/80 uppercase">Enterprise-Grade Learning</span>
           </div>
-          <h1 className="text-5xl md:text-7xl font-black tracking-tight mb-8 leading-tight">
+          <h1 className="text-3xl sm:text-4xl md:text-7xl font-black tracking-tight mb-8 leading-tight">
             Powerful Features. <br className="hidden md:block"/>
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-accent to-blue-500">Simple Interface.</span>
           </h1>
@@ -147,11 +147,11 @@ export default function Features() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="mt-32 relative bg-secondary/30 border border-border rounded-[3rem] p-12 md:p-20 text-center overflow-hidden"
+          className="mt-32 relative bg-secondary/30 border border-border rounded-[3rem] p-6 sm:p-10 md:p-20 text-center overflow-hidden"
         >
           <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-full h-1 bg-gradient-to-r from-transparent via-primary to-transparent opacity-50"></div>
           
-          <h2 className="text-4xl md:text-5xl font-black mb-8">Ready to experience the difference?</h2>
+          <h2 className="text-2xl sm:text-3xl md:text-5xl font-black mb-8">Ready to experience the difference?</h2>
           <p className="text-xl text-foreground/70 font-medium mb-12 max-w-2xl mx-auto">
             Join thousands of learners who have transformed their English skills with FluentYapp's smart curriculum.
           </p>

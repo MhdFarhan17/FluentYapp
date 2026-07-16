@@ -186,7 +186,7 @@ export default function LeaderboardPage() {
               </div>
               <div className="w-full bg-gradient-to-b from-gray-300 to-gray-400 rounded-t-xl sm:rounded-t-2xl h-24 sm:h-32 flex flex-col items-center justify-start pt-3 sm:pt-5 border-t-4 border-gray-200 shadow-[inset_0_4px_10px_rgba(255,255,255,0.4)]">
                 <span className="font-extrabold text-gray-800 truncate w-full text-center px-1 text-[10px] sm:text-sm">{podiumOrder[0].name}</span>
-                <span className="text-gray-700 font-bold text-[9px] sm:text-xs mt-1 bg-white/30 px-1 sm:px-2 py-0.5 sm:py-1 rounded-md sm:rounded-lg">{podiumOrder[0].xp} XP</span>
+                <span className="text-gray-700 font-bold text-[10px] sm:text-xs mt-1 bg-white/30 px-1 sm:px-2 py-0.5 sm:py-1 rounded-md sm:rounded-lg">{podiumOrder[0].xp} XP</span>
               </div>
             </div>
           )}
@@ -204,7 +204,7 @@ export default function LeaderboardPage() {
               <div className="w-full bg-gradient-to-b from-yellow-400 to-yellow-500 rounded-t-xl sm:rounded-t-2xl h-32 sm:h-44 flex flex-col items-center justify-start pt-3 sm:pt-5 border-t-4 border-yellow-300 shadow-[0_-10px_20px_rgba(250,204,21,0.3),inset_0_4px_10px_rgba(255,255,255,0.4)] relative overflow-hidden">
                 <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] opacity-30 mix-blend-overlay"></div>
                 <span className="font-extrabold text-yellow-900 truncate w-full text-center px-1 text-[11px] sm:text-sm relative z-10">{podiumOrder[1].name}</span>
-                <span className="text-yellow-900 font-bold text-[10px] sm:text-sm mt-1 bg-white/40 px-2 sm:px-3 py-0.5 sm:py-1 rounded-md sm:rounded-lg relative z-10">{podiumOrder[1].xp} XP</span>
+                <span className="text-yellow-900 font-bold text-[11px] sm:text-sm mt-1 bg-white/40 px-2 sm:px-3 py-0.5 sm:py-1 rounded-md sm:rounded-lg relative z-10">{podiumOrder[1].xp} XP</span>
               </div>
             </div>
           )}
@@ -220,7 +220,7 @@ export default function LeaderboardPage() {
               </div>
               <div className="w-full bg-gradient-to-b from-amber-600 to-amber-700 rounded-t-xl sm:rounded-t-2xl h-20 sm:h-24 flex flex-col items-center justify-start pt-3 sm:pt-5 border-t-4 border-amber-500 shadow-[inset_0_4px_10px_rgba(255,255,255,0.2)]">
                 <span className="font-extrabold text-white truncate w-full text-center px-1 text-[10px] sm:text-sm">{podiumOrder[2].name}</span>
-                <span className="text-white/90 font-bold text-[9px] sm:text-xs mt-1 bg-black/20 px-1 sm:px-2 py-0.5 sm:py-1 rounded-md sm:rounded-lg">{podiumOrder[2].xp} XP</span>
+                <span className="text-white/90 font-bold text-[10px] sm:text-xs mt-1 bg-black/20 px-1 sm:px-2 py-0.5 sm:py-1 rounded-md sm:rounded-lg">{podiumOrder[2].xp} XP</span>
               </div>
             </div>
           )}

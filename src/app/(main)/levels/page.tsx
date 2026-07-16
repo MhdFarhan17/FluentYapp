@@ -88,7 +88,7 @@ export default function Levels() {
              <Globe size={18} className="text-primary" />
              <span className="text-sm font-extrabold tracking-widest text-foreground/80 uppercase">Global Standard</span>
           </div>
-          <h1 className="text-5xl md:text-7xl font-black tracking-tight mb-8 leading-tight">
+          <h1 className="text-3xl sm:text-4xl md:text-7xl font-black tracking-tight mb-8 leading-tight">
             The CEFR <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">Framework</span>
           </h1>
           <p className="text-xl md:text-2xl text-foreground/70 font-medium leading-relaxed max-w-3xl mx-auto">
@@ -105,7 +105,7 @@ export default function Levels() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.7, delay: l.delay, ease: "easeOut" }}
-              className={`relative bg-background/60 backdrop-blur-xl border border-border/60 ${l.border} hover:border-transparent rounded-[2.5rem] p-8 md:p-10 shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 group overflow-hidden flex flex-col`}
+              className={`relative bg-background/60 backdrop-blur-xl border border-border/60 ${l.border} hover:border-transparent rounded-2xl sm:rounded-[2.5rem] p-8 md:p-10 shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 group overflow-hidden flex flex-col`}
             >
               {/* Animated Gradient Background on Hover */}
               <div className={`absolute inset-0 bg-gradient-to-br ${l.color} opacity-0 group-hover:opacity-[0.03] transition-opacity duration-700 pointer-events-none`}></div>
@@ -114,7 +114,7 @@ export default function Levels() {
               <div className={`absolute top-0 right-0 w-40 h-40 ${l.bg} rounded-bl-[100%] -z-10 group-hover:scale-150 transition-transform duration-700 ease-out`} />
               
               <div className="flex justify-between items-start mb-8 relative z-10">
-                <div className={`text-6xl md:text-7xl font-black bg-clip-text text-transparent bg-gradient-to-br ${l.color} drop-shadow-sm`}>
+                <div className={`text-4xl sm:text-5xl md:text-7xl font-black bg-clip-text text-transparent bg-gradient-to-br ${l.color} drop-shadow-sm`}>
                   {l.level}
                 </div>
                 <div className="w-12 h-12 rounded-2xl bg-background/80 backdrop-blur-sm border border-border flex items-center justify-center shadow-sm group-hover:rotate-12 group-hover:scale-110 transition-transform duration-500">
@@ -136,11 +136,11 @@ export default function Levels() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="mt-32 relative bg-gradient-to-br from-primary/10 via-background to-accent/10 border border-border/60 backdrop-blur-xl rounded-[3rem] p-12 md:p-20 text-center overflow-hidden shadow-xl"
+          className="mt-32 relative bg-gradient-to-br from-primary/10 via-background to-accent/10 border border-border/60 backdrop-blur-xl rounded-[3rem] p-6 sm:p-10 md:p-20 text-center overflow-hidden shadow-xl"
         >
           <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-full h-1 bg-gradient-to-r from-transparent via-primary to-transparent opacity-50"></div>
           
-          <h2 className="text-4xl md:text-5xl font-black mb-6 tracking-tight">Not sure where you stand?</h2>
+          <h2 className="text-2xl sm:text-3xl md:text-5xl font-black mb-6 tracking-tight">Not sure where you stand?</h2>
           <p className="text-xl text-foreground/70 font-medium mb-12 max-w-2xl mx-auto">
             Take our comprehensive, adaptive placement test and we'll automatically build a custom curriculum starting at your exact CEFR level.
           </p>

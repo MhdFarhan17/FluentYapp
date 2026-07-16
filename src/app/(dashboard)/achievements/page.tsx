@@ -144,7 +144,7 @@ export default function AchievementsPage() {
         <div className="absolute bottom-0 left-20 w-64 md:w-80 h-64 md:h-80 bg-red-500/20 rounded-full translate-y-1/3 blur-3xl"></div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
         
         {/* Render Standard Badges */}
         {badges.map((badge, index) => {
@@ -155,7 +155,7 @@ export default function AchievementsPage() {
           return (
             <div 
               key={badge.id}
-              className={`group relative p-6 pt-10 rounded-[2.5rem] flex flex-col items-center text-center transition-all duration-500 animate-in fade-in slide-in-from-bottom-8 ${
+              className={`group relative p-6 pt-10 rounded-2xl sm:rounded-[2.5rem] flex flex-col items-center text-center transition-all duration-500 animate-in fade-in slide-in-from-bottom-8 ${
                 unlocked 
                   ? "bg-background border-2 border-border shadow-[0_10px_40px_rgba(0,0,0,0.05)] hover:-translate-y-3 hover:shadow-[0_20px_50px_rgba(0,0,0,0.1)] hover:border-primary/30" 
                   : "bg-secondary/30 border-2 border-dashed border-border/50 grayscale opacity-90 hover:grayscale-0 hover:opacity-100"
@@ -188,7 +188,7 @@ export default function AchievementsPage() {
 
               {/* 3D Skeuomorphic Badge */}
               <div className={`relative mb-6 transform transition-transform duration-500 ${unlocked ? 'group-hover:scale-110 group-hover:rotate-3' : ''}`}>
-                <div className={`w-28 h-28 rounded-full flex items-center justify-center border-4 border-white/20 relative z-10 
+                <div className={`w-20 h-20 sm:w-28 sm:h-28 rounded-full flex items-center justify-center border-4 border-white/20 relative z-10 
                   ${unlocked ? `${badge.color} ${badge.shadow}` : 'bg-gray-300 shadow-[0_8px_0_0_#9ca3af]'}
                 `}>
                   <div className="absolute inset-1 rounded-full border-2 border-white/20 shadow-inner"></div>
