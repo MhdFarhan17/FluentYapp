@@ -4,8 +4,35 @@ import Link from "next/link";
 import { ArrowRight, Sparkles, BrainCircuit, Target, Trophy, Flame, Smartphone, Download, CheckCircle2, Heart, BookOpen, User } from "lucide-react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-
+import { useState, useEffect } from "react";
 export default function Home() {
+  const [deferredPrompt, setDeferredPrompt] = useState<any>(null);
+
+  useEffect(() => {
+    const handleBeforeInstallPrompt = (e: any) => {
+      e.preventDefault();
+      setDeferredPrompt(e);
+    };
+
+    window.addEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
+
+    return () => {
+      window.removeEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
+    };
+  }, []);
+
+  const handleInstallClick = async () => {
+    if (deferredPrompt) {
+      deferredPrompt.prompt();
+      const { outcome } = await deferredPrompt.userChoice;
+      if (outcome === 'accepted') {
+        setDeferredPrompt(null);
+      }
+    } else {
+      alert("To install the app, look for the 'Add to Home Screen' option in your browser menu. (On iOS Safari, tap the Share icon, then 'Add to Home Screen')");
+    }
+  };
+
   return (
     <div className="flex flex-col items-center">
       {/* Hero Section */}
@@ -274,7 +301,10 @@ export default function Home() {
                 FluentYapp is a Progressive Web App (PWA). Install it directly on your iOS, Android, or Desktop device without going through an App Store. Enjoy a seamless, fullscreen native experience.
               </p>
               
-              <button className="bg-background border-2 border-border text-foreground px-6 py-3 rounded-xl font-bold flex items-center space-x-3 hover:bg-secondary transition-colors shadow-sm">
+              <button 
+                onClick={handleInstallClick}
+                className="bg-background border-2 border-border text-foreground px-6 py-3 rounded-xl font-bold flex items-center space-x-3 hover:bg-secondary transition-colors shadow-sm"
+              >
                 <Download size={20} />
                 <span>Install App Now</span>
               </button>
